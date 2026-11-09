@@ -44,11 +44,14 @@ make cuda CUDA=/usr/local/cuda CUDA_ARCH=sm_89     # sm_89 for an L4, sm_80 for 
 
 ## Weights
 
-Download the v2 Large pixel-student checkpoint from Hugging Face and convert it to the flat `.tcw` file the encoder reads. The converter only needs `torch`.
+The encoder runs the v2 Large pixel student, [geotessera/TESSERA-V-2.0-2B-L](https://huggingface.co/geotessera/TESSERA-V-2.0-2B-L) on Hugging Face (CC0). Download the checkpoint and convert it to the flat `.tcw` file the encoder reads. The converter only needs `torch`.
 
 ```bash
+curl -LO https://huggingface.co/geotessera/TESSERA-V-2.0-2B-L/resolve/main/ckpt/student_large.pt
 python tools/export_weights.py student_large.pt student_large.tcw
 ```
+
+The other student sizes (N, S, M) have a different width and will not load into this encoder.
 
 ## Input
 
