@@ -51,7 +51,7 @@ curl -LO https://huggingface.co/geotessera/TESSERA-V-2.0-2B-L/resolve/main/ckpt/
 python tools/export_weights.py student_large.pt student_large.tcw
 ```
 
-The other student sizes (N, S, M) have a different width and will not load into this encoder.
+The encoder is built for the Large architecture only, and `export_weights.py` refuses a checkpoint with any other shape.
 
 ## Input
 
