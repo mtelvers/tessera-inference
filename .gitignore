@@ -1,0 +1,6 @@
+tessera_encode
+tessera_encode_cuda
+*.o
+*.tcw
+*.pt
+__pycache__/
